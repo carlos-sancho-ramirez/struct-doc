@@ -1,0 +1,27 @@
+> w16           # 16-bit word. Endianness is missing
+> w32           # 32-bit word. Endianness is missing
+
+w32 name            # Offset within the .dynstr section where the name for this symbol is found.
+w32 value
+w32 size
+byte info
+byte other
+w16 sectionIndex
+
+:info pack
+0..3 type
+4..7 bind
+
+:type
+0       # No type
+1       # Object
+2       # Function
+3       # Section
+4       # File
+5       # Common data object
+6       # Thread-local data object
+
+:bind
+0       # Local
+1       # Global
+2       # Weak

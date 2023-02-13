@@ -1,0 +1,2 @@
+# Represents the no existance of room for the given field. So, it is explicitly 0 bits.
+# This type can be used to resolve templates types. If the resolved type is void, those fields can be ignored.

@@ -1,0 +1,43 @@
+> word      # Depending on the file configuration it can be 32-bit or 64-bit long, and little or big endian
+
+word tag    # Dynamic entry type
+word value
+
+:tag
+0		# Null: Marks end of dynamic section
+1       # Needed: Name of needed library
+2       # Size in bytes of PLT relocations
+3       # Processor defined value
+4       # Hash: Address of symbol hash table
+5       # File position of the string table
+6       # File position of the symbol table
+7       # Address of Relocations with addend
+8       # Total size of the relocations with addends table
+9       # Size of one relocation entry
+10      # Size of string table
+11      # Size of one symbol table entry
+12      # Address of init function
+13      # Address of termination function
+14      # Name of shared object
+15      # Library search path (deprecated)
+16      # Start symbol search here
+17      # Address of relocation without addend table
+18      # Total size of relocation without addend table
+19      # Size of one Relocation without addend entry
+20      # Type of relocation in PLT
+21      # For debugging; unspecified
+22      # Relocation might modify .text
+23      # Address of PLT relocations
+24      # Process relocations of object
+25      # Array with addresses of init fct
+26      # Array with addresses of fini fct
+27      # Size in bytes of the array with addresses of init fct
+28      # Size in bytes of the array with addresses of fini fct
+29      # Library search path
+30      # Flags for the object being loaded
+32      # Array with addresses of preinit fct
+33      # Size in bytes of the array with addresses of preinit fct
+34      # Address of SYMTAB_SHNDX section
+35      # Number used
+0x6000000d..0x6ffff000      # OS-specific
+0x70000000..0x7fffffff      # processor-specific

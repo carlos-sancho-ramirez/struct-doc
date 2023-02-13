@@ -1,0 +1,11 @@
+# Relocation table entry with addend. Found in section of type SHT_RELA (.rela.dyn)
+
+> w64          # 64-bit length. Endianness not specified here
+
+w64 address    # Virtual address to the symbol
+w64 info
+w64 addend
+
+:info pack
+0..31 type
+32..63 symbol

@@ -1,0 +1,26 @@
+> w32       # Endianness is missing
+> w32Just32 # Endianness missing for 32-bit, this should be none for 64-bit
+> w32Just64 # Endianness missing for 64-bit, this should be none for 32-bit
+> addr      # it is a memory address. It can be 32 or 64 bits
+> offset    # it is an offset within the file. It can be 32 or 64 bits long
+
+w32 type                # type of segment
+w32Just64 flags         # segment-dependent flags. Only relevant for 64-bit structures
+offset offset           # Offset of the data within the file
+addr virtualAddress     # Virtual address of the segment in memory
+addr physicalAddress    # Physical address of the segment in memory. This is relevant for a few systems
+offset fileSize         # Size of the segment within the file. It can be zero
+offset memSize          # Size of the segment in memory. It can be zero
+w32Just32 flags         # segment-dependent flags. Only relevant for 32-bit structures
+offset alignment        # integral power of 2, with virtualAddress equating offset modulus this alignment
+
+:type
+0x00000000              # Program header table entry unused
+0x00000001              # Loadable segment
+0x00000002              # Dynamic linking information.
+0x00000003              # Interpreter information.
+0x00000004              # Auxiliary information.
+0x00000006              # Segment containing program header table itself.
+0x00000007              # Thread-Local Storage template.
+0x60000000..0x6FFFFFFF  # Reserved range. Operating system specific.
+0x70000000..0x7FFFFFFF  # Reserved range. Processor specific.

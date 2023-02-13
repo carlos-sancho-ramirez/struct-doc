@@ -1,0 +1,38 @@
+byte _ = 0x7F
+byte _ = 'E'
+byte _ = 'L'
+byte _ = 'F'
+byte class          # 32-bit or 64-bit format
+byte data           # Endianness in the file
+byte version = 1    # ELF version
+byte osabi          # Operating system ABI
+byte abiVersion     # Further information regarding the ABI. The meaning may change depending on 'osabi'
+byte[7] _           # Reserved padding, should be zero and ignored when read
+
+:class
+1   # 32-bit format
+2   # 64-bit format
+
+:data
+1   # Little endian
+2   # Big endian
+
+:osabi
+0x00    # System V
+0x01    # HP-UX
+0x02    # NetBSD
+0x03    # Linux
+0x04    # GNU Hurd
+0x06    # Solaris
+0x07    # AIX (Monterey)
+0x08    # IRIX
+0x09    # FreeBSD
+0x0A    # Tru64
+0x0B    # Novell Modesto
+0x0C    # OpenBSD
+0x0D    # OpenVMS
+0x0E    # NonStop Kernel
+0x0F    # AROS
+0x10    # FenixOS
+0x11    # Nuxi CloudABI
+0x12    # Stratus Technologies OpenVOS

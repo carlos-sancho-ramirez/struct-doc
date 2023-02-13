@@ -1,0 +1,11 @@
+# Relocation table entry with addend for 32-bit files. Found in section of type SHT_RELA (.rela.dyn)
+
+> w32           # 32-bit length. Endianness not defined here
+
+w32 address     # Virtual address to the symbol
+w32 info
+w32 addend
+
+:info pack
+0..7 type
+8..31 symbol

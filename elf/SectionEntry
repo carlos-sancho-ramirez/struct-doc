@@ -1,0 +1,51 @@
+> stringOffset    # it is an offset within the .shstrtab section that represents the name of this section. This is a 32-bits word (4 bytes)
+> flags           # 32 bits for 32-bit mode, and 64 for 64-bit mode
+> w32             # Endianess is missing
+> addr            # it is a memory address. It can be 32 or 64 bits
+> offset          # it is an offset within the file. It can be 32 or 64 bits long
+
+stringOffset name   # Offset within the table of strings where the name for this section is found. The name comes in the format of a character string with '\0' at the end
+w32 type            # Section type
+flags flags         # 0x01 = writable, 0x02 = occupies memory during execution, 0x04 = executable, 0x10 = Might be merged, 0x20 = Contains null-terminated strings, 0x40 = info field contains SHT index, 0x80 = preserve order after combining, 0x100 = Non-standard OS specific so handling is required, 0x200 = section is member of a group, 0x400 = Hold thread-local data
+addr virtualAddress # Virtual address of the section in memory
+offset offset       # Offset of the section in the file
+offset fileSize     # Size of the section in the file. May be zero
+w32 link            # Contains the section index of an associated section. This field is used for several purposes, depending on the type of section.
+w32 info            # Contains extra information about the section. This field is used for several purposes, depending on the type of section.
+offset alignment    # Contains the required alignment of the section. This field must be a power of two.
+offset entrySize    # Contains the size, in bytes, of each entry, for sections that contain fixed-size entries. Otherwise, this field contains zero.
+
+:type
+0x0     # Section header table entry unused
+0x1     # Program data
+0x2     # Symbol table
+0x3     # String table. The section is composed with a concatenation of multiple '\0' ended character strings.
+0x4     # Relocation entries with addends
+0x5     # Symbol hash table
+0x6     # Dynamic linking information
+0x7     # Notes
+0x8     # Program space with no data (bss)
+0x9     # Relocation entries, no addends
+0x0B    # Dynamic linker symbol table
+0x0E    # Array of constructors
+0x0F    # Array of destructors
+0x10    # Array of pre-constructors
+0x11    # Section group
+0x12    # Extended section indices
+
+:flags flags
+0x1     # Writable
+0x2     # Occupies memory during execution
+0x4     # Executable
+0x10    # Might be merged
+0x20    # Contains null-terminated strings
+0x40    # info field contains SHT index
+0x80    # Preserve order after combining
+0x100   # Non-standard OS specific handling required
+0x200   # Section is member of a group
+0x400   # Section hold thread-local data
+0x0FF00000      # OS-specific
+# Solaris:
+# 0x04000000    # Special ordering requirement (Solaris)
+# 0x08000000    # Section is excluded unless referenced or allocated (Solaris)
+0xF0000000      # Processor-specific
