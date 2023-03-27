@@ -24,3 +24,10 @@ offset alignment        # integral power of 2, with virtualAddress equating offs
 0x00000007              # Thread-Local Storage template.
 0x60000000..0x6FFFFFFF  # Reserved range. Operating system specific.
 0x70000000..0x7FFFFFFF  # Reserved range. Processor specific.
+
+:flags flags
+0x00000001  # Executable
+0x00000002  # Writable
+0x00000004  # Readable
+0x0FF00000  # OS specific flags
+0xF0000000  # Processor specific flags
