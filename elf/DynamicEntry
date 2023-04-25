@@ -9,8 +9,8 @@ word value
 2       # Size in bytes of PLT relocations
 3       # Processor defined value
 4       # Hash: Address of symbol hash table
-5       # File position of the string table
-6       # File position of the symbol table
+5       # Address of the string table
+6       # Address of the symbol table
 7       # Address of Relocations with addend
 8       # Total size of the relocations with addends table
 9       # Size of one relocation entry
@@ -40,4 +40,66 @@ word value
 34      # Address of SYMTAB_SHNDX section
 35      # Number used
 0x6000000d..0x6ffff000      # OS-specific
+0x6ffffef5  # GNU-style hash table
+0x6ffffef6  # TLSDESC_PLT
+0x6ffffef7  # TLSDESC_GOT
+0x6ffffef8  # GNU_CONFLICT
+0x6ffffef9  # GNU_LIBLIST
+0x6ffffefa  # Configuration information.
+0x6ffffefb	# Dependency auditing.
+0x6ffffefc  # Object auditing.
+0x6ffffefd  # PLT padding.
+0x6ffffefe  # Move table.
+0x6ffffeff  # Syminfo table.
+0x6ffffff0  # DT_VERSYM
+0x6ffffff9  # Number of Relocation entries with addend
+0x6ffffffa  # Number of Relocation entries without addend
+0x6ffffffb  # State flags
+# The following are the flags expected in value for this tag:
+# 0x00000001    Set RTLD_NOW for this object.
+# 0x00000002    Set RTLD_GLOBAL for this object.
+# 0x00000004    Set RTLD_GROUP for this object.
+# 0x00000008    Set RTLD_NODELETE for this object.
+# 0x00000010    Trigger filtee loading at runtime.
+# 0x00000020    Set RTLD_INITFIRST for this object.
+# 0x00000040    Set RTLD_NOOPEN for this object.
+# 0x00000080    $ORIGIN must be handled.
+# 0x00000100    Direct binding enabled.
+# 0x00000200    TRANS
+# 0x00000400    Object is used to interpose.
+# 0x00000800    Ignore default lib search path.
+# 0x00001000    Object can't be dldump'ed.
+# 0x00002000    Configuration alternative created.
+# 0x00004000    Filtee terminates filters search.
+# 0x00008000    Disp reloc applied at build time.
+# 0x00010000    Disp reloc applied at run-time.
+# 0x00020000    Object has no-direct binding.
+# 0x00040000    IGNMULDEF
+# 0x00080000    NOKSYMS
+# 0x00100000    NOHDR
+# 0x00200000    Object is modified after built.
+# 0x00400000    NORELOC
+# 0x00800000    Object has individual interposers.
+# 0x01000000    Global auditing required.
+# 0x02000000    Singleton symbols are used.
+# 0x04000000    STUB
+# 0x08000000    PIE
+# 0x10000000    KMOD
+# 0x20000000    WEAKFILTER
+# 0x40000000    NOCOMMON
+
+0x6ffffffc  # Address of version definition table
+0x6ffffffd	# Number of version definitions
+0x6ffffffe	# Address of table with needed versions
+0x6fffffff	# Number of needed versions
+
 0x70000000..0x7fffffff      # processor-specific
+
+/* Flags for the feature selection in DT_FEATURE_1.  */
+#define DTF_1_PARINIT	0x00000001
+#define DTF_1_CONFEXP	0x00000002
+
+/* Flags in the DT_POSFLAG_1 entry effecting only the next DT_* entry.  */
+#define DF_P1_LAZYLOAD	0x00000001	/* Lazyload following object.  */
+#define DF_P1_GROUPPERM	0x00000002	/* Symbols from next object are not
+					   generally available.  */
